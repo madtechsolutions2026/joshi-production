@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, MessageCircle, CheckCircle2, Send, MapPin } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 export default function BookingModal({ isOpen, onClose, preselectedService = "" }) {
   const [formData, setFormData] = useState({
@@ -34,6 +35,7 @@ export default function BookingModal({ isOpen, onClose, preselectedService = "" 
 
   const handleWhatsAppSubmit = (e) => {
     e.preventDefault();
+    confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
     const text = encodeURIComponent(
       `*New Project Inquiry - Joshi Productions*\n\n` +
       `*Name:* ${formData.name || 'Not provided'}\n` +
@@ -51,8 +53,10 @@ export default function BookingModal({ isOpen, onClose, preselectedService = "" 
 
   const handleCallbackSubmit = (e) => {
     e.preventDefault();
+    confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
     setSubmitted(true);
   };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-150">

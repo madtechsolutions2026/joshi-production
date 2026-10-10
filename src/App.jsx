@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import FilmstripMarquee from './components/FilmstripMarquee';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import PortfolioSection from './components/PortfolioSection';
+import ColorGradeComparison from './components/ColorGradeComparison';
 import ArtistRosterSection from './components/ArtistRosterSection';
 import ProductionWorkflow from './components/ProductionWorkflow';
 import InstagramFeedSection from './components/InstagramFeedSection';
@@ -47,17 +49,21 @@ export default function App() {
         onOpenShowreel={handleOpenShowreel} 
       />
 
-      {/* Hero Section */}
+      {/* Main Experience */}
       <main>
+        {/* Kinetic Animated Hero */}
         <Hero 
           onOpenBooking={() => handleOpenBooking("")} 
           onOpenShowreel={handleOpenShowreel} 
         />
 
+        {/* Animated Filmstrip Ticker */}
+        <FilmstripMarquee />
+
         {/* About Section */}
         <AboutSection />
 
-        {/* Services Section */}
+        {/* Unique Editorial Capabilities */}
         <ServicesSection 
           onSelectService={(srv) => handleOpenBooking(srv)} 
         />
@@ -66,6 +72,9 @@ export default function App() {
         <PortfolioSection 
           onOpenVideo={handleOpenProjectVideo} 
         />
+
+        {/* Interactive Before & After Color Grading Lab */}
+        <ColorGradeComparison />
 
         {/* Talent & Music Roster */}
         <ArtistRosterSection 
